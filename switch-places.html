@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8" />
+	
+	<title>Switch Places</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+	<script type="text/javascript" src="switch-places.js"></script>
+	
+	<style>
+		
+		#block1{
+			width:40px;
+			height:40px;
+			background-color:red;
+		}
+		
+		#block2{
+			width:40px;
+			height:40px;
+			background-color:blue;
+		}
+
+	</style>
+	
+	<script>
+		
+		$(document).ready( function(){
+		
+			$( 'button#direct' ).bind(
+				'click',
+				function()
+				{
+					$(document).switchPlaces(
+						'#block1',
+						'#block2',
+						{
+							speed : 500
+						}
+					);
+				}
+			);
+			
+			$( 'button#horizontal' ).bind(
+				'click',
+				function()
+				{
+					$(document).switchPlaces(
+						'#block1',
+						'#block2',
+						{
+							speed : 500,
+							path : 'horizontal'
+						}
+					);
+				}
+			);
+			
+			$( 'button#vertical' ).bind(
+				'click',
+				function()
+				{
+					$(document).switchPlaces(
+						'#block1',
+						'#block2',
+						{
+							speed : 500,
+							path : 'vertical'
+						}
+					);
+				}
+			);
+			
+		});
+		
+	</script>
+	
+</head>
+
+<body>
+
+<p><button id="direct">Direct</button> <button id="horizontal">Horizontal then vertical</button> <button id="vertical">Vertical then horizontal</button></p>
+
+<div id="block1">&nbsp;</div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<div style="margin-top:44px; margin-left:260px;">
+
+	<div id="block2">&nbsp;</div>
+
+</div>
+
+</body>
+
+</html>
